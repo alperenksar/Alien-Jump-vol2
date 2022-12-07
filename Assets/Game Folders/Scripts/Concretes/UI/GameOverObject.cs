@@ -14,31 +14,23 @@ namespace AlienJump.UI
         {
             _gameOverPanel.gameObject.SetActive(false);
         }
-
-        private void Update()
-        {
-            if (Time.timeScale == 0f)
-            {
-                _gameOverPanel.gameObject.SetActive(true);
-            }
-        }
+    
 
         private void OnEnable()
         {
             GameManager.Instance.OnGameStop += HandleOnGameStop;
         }
 
-       
-
-        void HandleOnGameStop()
-        {
-            _gameOverPanel.gameObject.SetActive(true);
-        }
-
         private void OnDisable()
         {
             GameManager.Instance.OnGameStop -= HandleOnGameStop;
 
+        }
+         
+        void HandleOnGameStop()
+        {
+            Time.timeScale = 0;
+            _gameOverPanel.gameObject.SetActive(true);
         }
     }
 

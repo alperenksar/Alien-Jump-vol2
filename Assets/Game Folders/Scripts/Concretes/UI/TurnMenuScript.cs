@@ -6,16 +6,12 @@ using UnityEngine;
 
 namespace AlienJump.UI
 {
-    public class GameOverPanel : MonoBehaviour
+    public class TurnMenuScript : MonoBehaviour
     {
-      
-        public void RestartGame()
+        public void TurnMenu()
         {
-            GameManager.Instance.LoadScene(1);
+            GameManager.Instance.TurnMenu();
         }
-
-      
     }
 
 }
-

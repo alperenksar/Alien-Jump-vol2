@@ -6,16 +6,12 @@ using UnityEngine;
 
 namespace AlienJump.UI
 {
-    public class GameOverPanel : MonoBehaviour
+    public class PlayButton : MonoBehaviour
     {
-      
-        public void RestartGame()
+       public void StartGame(int level)
         {
-            GameManager.Instance.LoadScene(1);
+            GameManager.Instance.LoadScene(level);
         }
-
-      
     }
 
 }
-

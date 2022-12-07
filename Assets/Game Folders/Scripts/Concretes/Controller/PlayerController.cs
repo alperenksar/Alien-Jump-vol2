@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using AlienJump.Inputs;
+using AlienJump.Managers;
 
 namespace AlienJump.Controller
 {
@@ -17,13 +18,18 @@ namespace AlienJump.Controller
 
         private void Awake()
         {
+            Time.timeScale = 1f;
             _input = new InputReader();
             horizontalMovement = new HorizontalMovement();
         }
 
         private void Update()
         {
-          
+            if (transform.position.y < _mainCamera.transform.position.y - 10)
+            {
+                Time.timeScale = 0f;
+                GameManager.Instance.StopGame();
+            }
 
         }
 

@@ -3,19 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 namespace AlienJump.UI
 {
-    public class GameOverPanel : MonoBehaviour
+    public class ExitButton : MonoBehaviour
     {
-      
-        public void RestartGame()
+       public void ExitGame()
         {
-            GameManager.Instance.LoadScene(1);
+            GameManager.Instance.ExitGame();
         }
-
-      
     }
 
 }
-

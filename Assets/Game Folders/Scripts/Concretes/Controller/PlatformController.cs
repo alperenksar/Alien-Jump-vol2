@@ -12,11 +12,25 @@ namespace AlienJump.Controller
     {
         Score _score;
 
+        LevelManager _levelManager;
+
+
+        private Camera MainCam;
         [SerializeField] private float JumpForce = 10f;
 
         private void Awake()
         {
+            MainCam = Camera.main;
+            _levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
             _score =GameObject.Find("Canvas").GetComponentInChildren<Score>();
+        }
+
+        private void LateUpdate()
+        {
+            if (MainCam.transform.position.y - 10 > transform.position.y)
+            {
+                Destroy(gameObject);
+            }
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -49,22 +63,13 @@ namespace AlienJump.Controller
                 rb.velocity = velocity;
             }
 
+            _levelManager._counterOfCycle -= 1;
 
-
-
-            
             gameObject.AddComponent<Rigidbody2D>();
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            StartCoroutine(DestroyCounter());
-            
-            
+                       
         }
-
-        IEnumerator DestroyCounter()
-        {
-            yield return new WaitForSeconds(5f);
-            Destroy(gameObject);
-        }
+     
 
     }
 

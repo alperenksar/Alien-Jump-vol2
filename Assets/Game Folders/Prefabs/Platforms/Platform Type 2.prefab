@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54f8328be2a40fa40ac3bbdfa9bc8e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MainCam: {fileID: 0}
   JumpForce: 6
 --- !u!1001 &3228142582571697225
 PrefabInstance:

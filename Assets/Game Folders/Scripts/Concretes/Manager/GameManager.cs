@@ -17,20 +17,18 @@ namespace AlienJump.Managers
 
         public void StopGame()
         {
-            Time.timeScale = 0f;
-
-
             OnGameStop?.Invoke();
         }
 
         public void LoadScene(int sceneNumber)
         {
+            Time.timeScale = 1f;
             StartCoroutine(LoadSceneAsync(sceneNumber));
         }
 
         IEnumerator LoadSceneAsync(int sceneNumber)
         {
-            Time.timeScale = 1f;
+            
             yield return SceneManager.LoadSceneAsync(sceneNumber);
         }
 
